@@ -5,6 +5,7 @@ NOTE: This is NOT rosegraphics -- it is your OWN Point class.
 Authors: David Mutchler, Vibha Alangar, Dave Fisher, Amanda Stouder,
          their colleagues and Michael Johnson.
 """  # DONe: 1. PUT YOUR NAME IN THE ABOVE LINE.
+import math
 
 
 def main():
@@ -44,9 +45,6 @@ def main():
 # NOTE: For ALL of the methods that you implement, the method is allowed
 # to have additional side effects as needed by it and/or other methods.
 ###############################################################################
-import math
-
-
 class Point(object):
     """Point in 2-space"""
 
@@ -58,7 +56,6 @@ class Point(object):
         self.start_x = x
         self.start_y = y
         self.total = 0
-
 
     def __repr__(self):
         return "Point({}, {})".format(self.x, self.y)
@@ -96,7 +93,8 @@ class Point(object):
         return self.total
 
     def closer_to(self, p2, p3):
-        if math.sqrt((self.x - p2.x)**2 + (self.y - p2.y)**2) <= math.sqrt((self.x - p3.x)**2 + (self.y - p3.y)**2):
+        if math.sqrt((self.x - p2.x) ** 2 + (self.y - p2.y) ** 2) <= math.sqrt(
+                (self.x - p3.x) ** 2 + (self.y - p3.y) ** 2):
             return p2
         else:
             return p3
@@ -1046,6 +1044,7 @@ def run_test_closer_to():
     print('Expected: False')
     print('Actual:  ', p1.closer_to(p4, p5) is p5)
 
+
 def run_test_halfway_to():
     """
     Tests the   halfway_to   method of the Point class.
@@ -1093,7 +1092,7 @@ def run_test_halfway_to():
 
     """
     # -------------------------------------------------------------------------
-    # TODO: 13.  Follow the same instructions as in TO-DO 3 above,
+    # DONE: 13.  Follow the same instructions as in TO-DO 3 above,
     #    but for the  halfway_to  method specified above.
     # -------------------------------------------------------------------------
     print()
@@ -1126,6 +1125,8 @@ def run_test_halfway_to():
     print()
     print('Should be: Point(-10.0, 20.0)')
     print('Actual is:', p3.halfway_to(p3))
+
+
 # -----------------------------------------------------------------------------
 # Calls  main  to start the ball rolling.
 # -----------------------------------------------------------------------------
